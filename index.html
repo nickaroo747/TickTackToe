@@ -10,21 +10,27 @@
 
 		<script src="js/module.js"></script>
 		<script src="js/controller.js"></script>
-
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="css/style.css">
 
 	</head>
 <body>
-	<div id="scorebox1">
-		<div id="playertitle">Player 1 Score:</div>
-		<div id="playerScore"></div>
+	<div class="animated fadeInDown">
+		<div id="rulebox">
+			<div class="boxx" id="box1"><img id = "largecan"src = "images/cokebg.png"></div>
+			<div class="boxx">
+			<div class="boxx" id="title">Tick Tack Toe: Coke Vs Pepsi</div><hr>
+				
+			<a class="buttonmargin" href="game.html"><div id="play">Play</div></a><hr>
+				
+			<div id="rules">The object of Tic Tac Toe is to get three in a row. You play on a three by three game board. The first player is Coke and the second is Pepsi. Players alternate squares on the game board until either oppent has three in a row or all nine squares are filled. Cokegoes first, and in the event that no one has three in a row, the challenge will be deamed a tie game.</div>
+			</div>
+			<div class="boxx" id="box3"><img id = "largecan"src = "images/pepsibg.png"></div>
+			
+		</div>
+
 	</div>
-	<div id="scorebox2">
-		<div id="playertitle">Player 2 Score:</div>
-		<div id="playerScore"></div>
-	</div>
-	<div id="container" ng-controller="tictactoe as control">
-	<div class="box" ng-repeat="hole in control.listholes">
 </body>
 </html>

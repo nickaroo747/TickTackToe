@@ -1,20 +1,140 @@
+*{
+}
+
 html{
-	background: url("../images/background.jpg") no-repeat center center fixed; 
+	background: url("../images/background6.jpg") no-repeat center center fixed; 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	width: 100%;
+	height: 100%;
 }
 
 body {
-    
+    margin-top: 0px;
+}
+hr{
+	width: 90%;
+	margin-top: 25px;
+}
+
+a{
+	text-decoration: none;
+	color:white;
+}
+
+.buttonmargin{
+	margin-top: 15px;
+	background-color: white;
+}
+
+#playerScore1 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 60px;
+	color: white;
+	margin-top: 25px;
+}
+
+#playerScore2 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 60px;
+	color: white;
+	margin-top: 25px;
+}
+
+#title{
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 25px;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 40px;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#title2{
+	margin: 0 auto;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 20px;
+	letter-spacing: 10pt;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+#rules{
+	color: white;
+	font-family: Arial;
+	font-size: 9pt;
+	width: 600px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+#play {
+  border: 1px solid white;
+  height: 52px;
+  margin: 280px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  color: white;
+  font-family: arial;
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgba(127, 0, 0, .5);
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+#play:hover {
+  border: 1px solid white;
+  height: 52px;
+  margin: 280px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  color: white;
+  font-family: arial;
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: rgba(234, 203, 0, .5)
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+#rulebox{
+/*	border: 1px solid white;*/
+	width: 1155px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 250px;
+
+}
+.boxx{
+/*	border: 1px solid white;*/
+	float: left;
+
+}
+
+#box1{
+	width: 175px;
+}
+
+#box3{
+	width: 175px;
 }
 
 #container{
 	width: 630px;
 	margin: 0 auto;
-	margin-top: 75px;
-	margin-bottom: 75px;
+/*	border: 1px solid white;*/
+	padding-top: 90px;
 }
 
 .box{
@@ -28,36 +148,45 @@ body {
 #playertitle{
 	margin-top: 75px;
 	color: white;
+	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 3pt;
 }
 
 #scorebox2{
 	float: right;	
    	width: 20%;
 	color: black;
-	font-size: 20pt;
+	font-size: 16pt;
 	font-family: arial;
 	text-transform: uppercase;
 	text-align: center;
 	height: 765px;
-	background: rgba(41, 128, 185, 0.7);
+	background: rgba(41, 128, 185, 0.3);
 	border-radius: 0px 0px 0px 30px;
-	margin-right: 0px; 
-	margin-top: -75px;
+	margin-right: 0px;
+	margin-top: 0px;
 }
 
 #scorebox1{
 	float: left;	
    	width: 20%;
 	color: black;
-	font-size: 20pt;
+	font-size: 16pt;
 	font-family: arial;
 	text-transform: uppercase;
 	text-align: center;
 	height: 765px;
-	background: rgba(207, 0, 15, 0.7);
-	border-radius: 0px 30px 0px 0px;
+	background: rgba(207, 0, 15, 0.3);
+	border-radius: 0px 0px 30px 0px;
 	margin-right: 0px; 
-	margin-bottom: -75px;
+}
+
+#pepsican{
+	margin-top: 200px;
+}
+
+#cokecan{
+	margin-top: 200px;
 }
 
 
