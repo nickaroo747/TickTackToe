@@ -6,106 +6,171 @@ tictactoe.$inject = ['$firebaseObject', '$firebaseArray']; //injected my control
 
 function tictactoe($firebaseObject, $firebaseArray){
     var self = this;
-    self.scoretest1 = 0;
-    self.scoretest2 = 0;
-    self.pickSquare = pickSquare;
+    self.scoretest1 = "PLAYER 1";
+    self.scoretest2 = "PLAYER 2";
+     
+    self.runGame = runGame;
+    self.gameObject = syncGameWithFirebase();
+    self.gameObject.pepsiScore;
 
-    var pepsiScore = 0; // established pepsi's score is 0
-    var cokeScore = 0; // established coke's score is 0
+    // self.endGame = endGame;
 
-    var coke = ("images/cokesm.png")
-    var pepsi = ("images/pepsism.png")
-    var blank = ("images/coke.png")
+    function syncGameWithFirebase(){
+        var ref = new Firebase('https://cokevspepsi.firebaseio.com/tictactoe');
+        var gameObject = $firebaseObject(ref);
 
-    var playerturn = 0;
+        var pepsiScore = ""; // established pepsi's score is 0
+        var cokeScore = ""; // established coke's score is 0
 
-self.listholes = [ 
-        { name: "1", image: "images/blank.png"},
-        { name: "2", image: "images/blank.png"},
-        { name: "3", image: "images/blank.png"},
-        { name: "4", image: "images/blank.png"},
-        { name: "5", image: "images/blank.png"},
-        { name: "6", image: "images/blank.png"},
-        { name: "7", image: "images/blank.png"},
-        { name: "8", image: "images/blank.png"},
-        { name: "9", image: "images/blank.png"},
-    ] 
+        var coke = ("images/cokesm.png");
+        var pepsi = ("images/pepsism.png");
+        var blank = ("images/blank.png");
 
-      function pickSquare($index){
-        var ref = new Firebase('https://cokevspepsi.firebaseio.com');
-        var playerSelection = $firebaseObject(ref);
-          
-          if (playerturn === 1 || 3 || 5 || 7){
-            self.listholes[$index].image = pepsi;
-            self.scoretest2++;
-            playerturn++;
-            // return playerturn;
-          } else 
+        var playerturn = 0;
 
-          if (playerturn === 0 || 4 || 6 || 8){
-            self.listholes[$index].image = coke;
-            self.scoretest1++;
-            playerturn++;
-            // return playerturn;
-          }
+        //initialize values in the gameObject once it's loaded
+        gameObject.$loaded(function(){
 
-          console.log(playerturn);
+            gameObject.listholes = [ 
+                { name: "1", image: "images/blank.png"},
+                { name: "2", image: "images/blank.png"},
+                { name: "3", image: "images/blank.png"},
+                { name: "4", image: "images/blank.png"},
+                { name: "5", image: "images/blank.png"},
+                { name: "6", image: "images/blank.png"},
+                { name: "7", image: "images/blank.png"},
+                { name: "8", image: "images/blank.png"},
+                { name: "9", image: "images/blank.png"}
+            ] 
+            gameObject.pepsiScore = "";
+            gameObject.cokeScore = "";
+            gameObject.playerturn = "";
 
+            gameObject.$save();
+        });
+
+        return gameObject;
+    }
+    
+    function pickSquare($index){
+        
+        if (self.pepsiScore == "Winner" || self.cokeScore == "Winner"){
+            return;
         }
-    }; // End of the function GuacamoleController($firebaseObject)
 
+        if (self.gameObject.listholes[$index].image === "images/blank.png"){
+            console.log('this is here');
+            if (self.playerturn %2 !=0 ) {
+            self.gameObject.listholes[$index].image = self.pepsi;
+            self.gameObject.playerturn++;
+            } else {
+                self.gameObject.listholes[$index].image = self.coke;
+                self.gameObject.playerturn++;
+            }
 
+            console.log(self.gameObject.playerturn);
+            runGame();
+        }
+    }
 
+    function runGame(){
+        console.log("RunGame Ran");
+        if (self.gameObject.listholes[0].image === self.gameObject.coke && self.gameObject.listholes[1].image === self.gameObject.coke && self.gameObject.listholes[2].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[3].image === self.gameObject.coke && self.gameObject.listholes[4].image === self.gameObject.coke && self.gameObject.listholes[5].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[6].image === self.gameObject.coke && self.gameObject.listholes[7].image === self.gameObject.coke && self.gameObject.listholes[8].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[0].image === self.gameObject.coke && self.gameObject.listholes[3].image === self.gameObject.coke && self.gameObject.listholes[6].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[1].image === self.gameObject.coke && self.gameObject.listholes[4].image === self.gameObject.coke && self.gameObject.listholes[7].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[2].image === self.gameObject.coke && self.gameObject.listholes[5].image === self.gameObject.coke && self.gameObject.listholes[8].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[0].image === self.gameObject.coke && self.gameObject.listholes[4].image === self.gameObject.coke && self.gameObject.listholes[8].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[2].image === self.gameObject.coke && self.gameObject.listholes[4].image === self.gameObject.coke && self.gameObject.listholes[6].image === self.gameObject.coke){
+            self.scoretest1 = "Winner";
+            self.scoretest2 = "Loser";
+            self.gameObject.cokeScore = "Winner";
+        }
 
+        //Pepsi Wins//
 
+        if (self.gameObject.listholes[0].image === self.gameObject.pepsi && self.gameObject.listholes[1].image === self.gameObject.pepsi && self.gameObject.listholes[2].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[3].image === self.gameObject.pepsi && self.gameObject.listholes[4].image === self.gameObject.pepsi && self.gameObject.listholes[5].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
-/* command + option + / */ 
+        if (self.gameObject.listholes[6].image === self.gameObject.pepsi && self.gameObject.listholes[7].image === self.gameObject.pepsi && self.gameObject.listholes[8].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
-//IF THEN STATEMENTS//
-// if cell numbers 1,2,3 are equal / winner
-// if cell numbers 4,5,6 are equal / winner
-// if cell numbers 7,8,9 are equal / winner
+        if (self.gameObject.listholes[0].image === self.gameObject.pepsi && self.gameObject.listholes[3].image === self.gameObject.pepsi && self.gameObject.listholes[6].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
-// if cell numbers 1,4,7 are equal / winner
-// if cell numbers 2,5,8 are equal / winner
-// if cell numbers 3,6,9 are equal / winner
+        if (self.gameObject.listholes[1].image === self.gameObject.pepsi && self.gameObject.listholes[4].image === self.gameObject.pepsi && self.gameObject.listholes[7].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
-// if cell numbers 1,5,9 are equal / winner
-// if cell numbers 3,5,7 are equal / winner
+        if (self.gameObject.listholes[2].image === self.gameObject.pepsi && self.gameObject.listholes[5].image === self.gameObject.pepsi && self.gameObject.listholes[8].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
+        if (self.gameObject.listholes[0].image === self.gameObject.pepsi && self.gameObject.listholes[4].image === self.gameObject.pepsi && self.gameObject.listholes[8].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
 
-//DOn't Forget to Post the Score
-        // function postScore(){
-        //     var ref = new Firebase('https://guacamolenrm.firebaseio.com/pScore');
-        //     var pScore = $firebaseObject(ref);
-
-        //     pScore.$loaded(function(){
-        //         pScore.holes = [];
-        //         pScore.currentMolePosition = 0;
-        //         pScore.score = 0;
-        //         for(var i = 0; i <9; i++){
-        //           pScore.holes.push({moleIsHere: false});
-        //         }
-                    
-        //         pScore.$save();
-        //         console.log(pScore);
-        //         whackMole(0);
-        //     })
-        //     return pScore;
-        // } 
-
-
-
-
-
-
-
-
+        if (self.gameObject.listholes[2].image === self.gameObject.pepsi && self.gameObject.listholes[4].image === self.gameObject.pepsi && self.gameObject.listholes[6].image === self.gameObject.pepsi){
+            self.scoretest2 = "Winner";
+            self.scoretest1 = "Loser";
+            self.gameObject.pepsiScore = "Winner";
+        }
+    }
+}; // End of the function GuacamoleController($firebaseObject)

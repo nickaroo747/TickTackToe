@@ -17,11 +17,37 @@ body {
 hr{
 	width: 90%;
 	margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 a{
 	text-decoration: none;
 	color:white;
+}
+#buttonps {
+  width: 150px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 24px;
+  background: rgba(174, 113, 22, 0.4);
+  padding: 10px 60px 10px 60px;
+  border: solid #ffffff 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: rgba(95, 63, 25, 0.4);;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .buttonmargin{
@@ -32,7 +58,7 @@ a{
 #playerScore1 {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
-	font-size: 60px;
+	font-size: 45px;
 	color: white;
 	margin-top: 25px;
 }
@@ -40,21 +66,22 @@ a{
 #playerScore2 {
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
-	font-size: 60px;
+	font-size: 45px;
 	color: white;
 	margin-top: 25px;
 }
 
 #title{
-	width: 800px;
-	margin: 0 auto;
-	margin-top: 25px;
-	color: white;
-	font-family: 'Montserrat', sans-serif;
-	font-weight: bold;
-	font-size: 40px;
-	text-transform: uppercase;
-	text-align: center;
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 38px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 14px;
 }
 
 #title2{
@@ -76,44 +103,12 @@ a{
 	margin-top: 25px;
 }
 
-#play {
-  border: 1px solid white;
-  height: 52px;
-  margin: 280px;
-  margin-top: 24px;
-  margin-bottom: 15px;
-  color: white;
-  font-family: arial;
-  font-size: 36px;
-  text-transform: uppercase;
-  text-align: center;
-  background-color: rgba(127, 0, 0, .5);
-  padding-top: 10px;
-  padding-bottom: 0px;
-}
-
-#play:hover {
-  border: 1px solid white;
-  height: 52px;
-  margin: 280px;
-  margin-top: 24px;
-  margin-bottom: 15px;
-  color: white;
-  font-family: arial;
-  font-size: 36px;
-  text-transform: uppercase;
-  text-align: center;
-  background-color: rgba(234, 203, 0, .5)
-  padding-top: 10px;
-  padding-bottom: 0px;
-}
-
 #rulebox{
 /*	border: 1px solid white;*/
 	width: 1155px;
 	height: 350px;
 	margin: 0 auto;
-	margin-top: 250px;
+	margin-top: 210px;
 
 }
 .boxx{
@@ -140,16 +135,21 @@ a{
 .box{
 	width: 175px;
 	height: 175px;
-	border: 1px solid white;
+/*	border: 1px solid white;*/
 	margin: 15px;
 	display: inline-block;	
+}
+
+.cans{
+    margin-bottom: 20px;
 }
 
 #playertitle{
 	margin-top: 75px;
 	color: white;
 	font-family: 'Montserrat', sans-serif;
-	letter-spacing: 3pt;
+	letter-spacing: 5pt;
+    font-size: 20pt;
 }
 
 #scorebox2{

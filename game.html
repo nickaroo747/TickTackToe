@@ -7,8 +7,8 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
         <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
         <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
-
-		<script src="js/module.js"></script>
+<script src="js/module.js"></script>
+		
 		<script src="js/controller.js"></script>
 
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
@@ -20,20 +20,20 @@
 	</head>
 <body ng-controller="tictactoe as control">
 	<div id="scorebox1">
-		<div id="playertitle">Player 1 Score:</div><hr>
+		<div id="playertitle">Player 1: Coca-Cola:</div><hr>
 		<div id="playerScore1">{{control.scoretest1}}</div>
-		<div class="animated bounceIn"><img id="cokecan" src="images/coke.png"></div>
+		<div class="cans"><div class="animated bounceIn"><img id="cokecan" src="images/coke.png"></div></div>
 
 	</div>
 	<div id="scorebox2">
-		<div id="playertitle">Player 2 Score:</div><hr>
+		<div id="playertitle">Player 2: Pepsi-Cola</div><hr>
 		<div id="playerScore2">{{control.scoretest2}}</div>
-		<div class="animated bounceIn"><img id="pepsican" src="images/pepsi.png"></div>
+		<div class="cans"><div class="animated bounceIn"><img id="pepsican" src="images/pepsi.png"></div></div>
 		
 	</div>
 	<div id="container">
 	<div id="title2">Coca-Cola Vs Pepsi Co.</div>
-	<div class="box" ng-repeat="hole in control.listholes" ng-click="control.pickSquare($index)" ng-class="{mole: hole.moleIsHere}"><img ng-src={{hole.image}}></div><!-- hole in doesn't matter, named anything -->
+	<div class="box" ng-repeat="hole in control.gameObject.listholes" ng-click="control.pickSquare($index)" ng-class="{mole: hole.moleIsHere}"><img ng-src={{hole.image}}></div><!-- hole in doesn't matter, named anything -->
 </body>
 </html>
 
